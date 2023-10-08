@@ -11,20 +11,26 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 </head>
 
-<body class ="font-serif bg-amber-100 bg-gradient-to-r from-yellow-100 to-orange-100 text-center">
+<body class ="bg-amber-100 bg-gradient-to-r from-yellow-200 to-orange-100 text-center font-serif">
   <div class="flex-column justify-space-around text-center">
     <header class="flex justify-space-between items-center text-center p-2">
       <h1 class ="text-6xl text-center">
         <span role="img" aria-label="bunny">🐇</span>
-        <a href="/" class ="text-purple-500   text-center">Welcome!!!</a>
+        <a href="/" class ="text-amber-400 text-center">Welcome!!!</a>
       </h1>
+     
+     <h2 class ="text-3xl animate-pulse text-amber-400 text-right">One Day At A Time</h2>
+   <div class="profile">
+  <h2>{{name}}</h2>
+  <img src="{{imageUrl}}" alt="{{altText}}">
+</div>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a  class ="text-amber-400 text-2xl"href="/login">login</a>
         {{/if}}
       </nav>
     </header>
