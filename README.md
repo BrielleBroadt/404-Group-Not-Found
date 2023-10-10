@@ -17,7 +17,7 @@ Renew You is a powerful and user-friendly sobriety and habit tracker designed to
 
 ## Project Information
 
-This project is developed as part of a school assignment for Rutgers University. While external contributions are not expected, this repository serves as a demonstration of my understanding of the concepts covered in the course.
+This project is developed as part of a school assignment for Rutgers University. While external contributions are not expected, this repository serves as a demonstration of our understanding of the concepts covered in the course.
 
 ## Installation
 
@@ -45,11 +45,11 @@ This project is developed as part of a school assignment for Rutgers University.
 
 ## Contact Information
 
-For any further inquiries, please feel free to reach out to me through the following channels:
+For any further inquiries, please feel free to reach out to us through the following channels:
 * GitHub: [My GitHub Profile](https://www.github.com/briellebroadt)
 * Email: (?)
 
-I am here to assist you with any questions or feedback you may have. Thank you for your interest!
+We am here to assist you with any questions or feedback you may have. Thank you for your interest!
 
 ## License 
 
