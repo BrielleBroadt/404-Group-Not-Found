@@ -32,6 +32,17 @@ const sess = {
   })
 };
 
+var data = {
+  pageTitle: "homepage",
+  imageUrl: "public/images/goodHabits.jpg",
+  imageAltText: "One Day At a Time"
+};
+// Testing adding photo to home page
+var source = document.getElementById("template").innerHTML;
+var template = Handlebars.compile(source);
+var html = template(data);
+document.getElementById("output").innerHTML = html;
+
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
