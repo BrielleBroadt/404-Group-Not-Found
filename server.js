@@ -32,11 +32,11 @@ const sess = {
   })
 };
 
-var data = {
-  pageTitle: "homepage",
-  imageUrl: "public/images/goodHabits.jpg",
-  imageAltText: "One Day At a Time"
-};
+// var data = {
+//   pageTitle: "homepage",
+//   imageUrl: "public/images/goodHabits.jpg",
+//   imageAltText: "One Day At a Time"
+// };
 // Testing adding photo to home page
 // var source = document.getElementById("template").innerHTML;
 // var template = Handlebars.compile(source);
