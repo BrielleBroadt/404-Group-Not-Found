@@ -5,7 +5,7 @@ class Entries extends Model {}
 
 Entries.init(
   {
-    entry_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
