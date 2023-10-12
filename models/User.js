@@ -10,7 +10,7 @@ class User extends Model {
 
 User.init(
   {
-    user_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -28,12 +28,23 @@ User.init(
         isEmail: true,
       },
     },
-    password_hash: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [8],
+      }
     },
   },
+  // this hashes the password
   {
+    hooks: {
+        beforeCreate: async (newUserData) => {
+            newUserData.password = await bcrypt.hash(newUserData.password, 10);
+            return newUserData
+        }
+    },
+
     sequelize,
     timestamps: false,
     freezeTableName: true,
