@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
+const User = require('./User');
 class Entries extends Model {}
 
 Entries.init(
   {
-    entry_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -23,8 +23,8 @@ Entries.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'user',
-        key: 'user_id',
+        model: User,
+        key: 'id',
       },
     },
   },

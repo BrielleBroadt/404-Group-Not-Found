@@ -1,11 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const User = require('./User');
 
 class SobrietyProgress extends Model {}
 
 SobrietyProgress.init(
   {
-    progress_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -24,8 +25,8 @@ SobrietyProgress.init(
       allowNull: false,
       unique: true,
       references: {
-        model: 'user',
-        key: 'user_id',
+        model: User,
+        key: 'id',
       },
     },
   },
@@ -34,7 +35,7 @@ SobrietyProgress.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'sobriety_progress',
+    modelName: 'sobrietyProgress',
   }
 );
 
