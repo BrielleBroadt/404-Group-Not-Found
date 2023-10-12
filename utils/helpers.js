@@ -1,11 +1,8 @@
 module.exports = {
-  format_date: (date) => {
-    // Format date as MM/DD/YYYY
-    return date.toLocaleDateString();
-  },
-  format_timesober: (timesober) => {
+  
+  format_data: (data) => {
     // format large numbers with commas
-    return parseInt(timesober).toLocaleString();
+    return parseInt(data).toLocaleString();
   },
   get_emoji: () => {
     const randomNum = Math.random();
