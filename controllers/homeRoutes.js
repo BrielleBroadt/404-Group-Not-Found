@@ -15,17 +15,16 @@ router.get('/', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/homepage', withAuth, async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      attributes: { exclude: ['password'] }
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('returningUser', {
       ...user,
       logged_in: true
     });
@@ -53,7 +52,7 @@ router.post('/login', async (req, res) => {
   if (authenticationIsSuccessful) {
     req.session.logged_in = true;
     req.session.user_id = /* Set the user's ID here */
-    res.redirect('/homepage'); // Redirect to the home page
+    res.redirect('/profile'); // Redirect to the home page
   } else {
     // Handle authentication failure, e.g., show an error message
   }
