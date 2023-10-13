@@ -68,7 +68,41 @@
 
   // Initial update of the count display
   updateCountDisplay();
+
+  function setCountInCookie(count) {
+  document.cookie = `count=${count}`;
+}
+
+function getCountFromCookie() {
+  const cookieString = document.cookie;
+  const cookies = cookieString.split('; ');
+  for (const cookie of cookies) {
+    const [name, value] = cookie.split('=');
+    if (name === 'count') {
+      return parseInt(value, 10);
+    }
+  }
+  return 0; // Return a default value if the count is not found in cookies
+}
+
+// When the page loads, initialize the count from the cookie
+count = getCountFromCookie();
+updateCountDisplay();
+
+// Update the count in the cookie whenever it changes
+yesButton.addEventListener('click', function() {
+  setCountInCookie(count);
+  updateCountDisplay();
+});
+
+noButton.addEventListener('click', function() {
+  setCountInCookie(count);
+  updateCountDisplay();
+});
 </script>
         </div>
     </div>
 </div>
+
+
+
