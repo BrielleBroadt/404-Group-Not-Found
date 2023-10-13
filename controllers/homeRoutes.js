@@ -59,22 +59,21 @@ router.post('/login', async (req, res) => {
 
 // Define the route to handle the login form submission
   try {
-    // You should implement user authentication here.
-    // For example, query your database to check if the provided username and password are valid.
+
     const user = await User.findOne({
       where: {
         username: username,
-        password: password, // This is just a simple example; you should hash the password in practice.
+        password: password, 
       },
     });
 
     if (user) {
-      // Successful authentication - set the session variable to indicate the user is logged in
+
       req.session.logged_in = true;
       req.session.user_id = user.id;
       res.redirect('/homepage'); // Redirect to the home page
     } else {
-      // Authentication failed - display an error message
+
       res.render('login', { error: 'Invalid username or password' });
     }
   } catch (error) {
@@ -84,9 +83,6 @@ router.post('/login', async (req, res) => {
 });
 
 // Other routes and middleware definitions...
-
-module.exports = router;
-
 
 
 module.exports = router;
