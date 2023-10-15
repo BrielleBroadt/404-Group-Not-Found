@@ -88,6 +88,10 @@ router.get('/newuser', (req,res) => {
   res.render('newuser');
 });
 
+router.get('/returningUser', (req,res) => {
+  res.render('returningUser');
+});
+
 module.exports = router;
 
 
