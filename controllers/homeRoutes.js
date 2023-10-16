@@ -24,7 +24,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('returningUser', {
+    res.render('profile', {
       ...user,
       logged_in: true
     });
@@ -36,7 +36,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/login');
     return;
   }
 
@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
   if (authenticationIsSuccessful) {
     req.session.logged_in = true;
     req.session.user_id = /* Set the user's ID here */
-    res.redirect('/profile'); // Redirect to the home page
+    res.redirect('/returningUser'); // Redirect to the home page
   } else {
     // Handle authentication failure, e.g., show an error message
   }
@@ -71,7 +71,7 @@ router.post('/login', async (req, res) => {
 
       req.session.logged_in = true;
       req.session.user_id = user.id;
-      res.redirect('/homepage'); // Redirect to the home page
+      res.redirect('/returningUser'); // Redirect to the home page
     } else {
 
       res.render('login', { error: 'Invalid username or password' });
@@ -83,6 +83,13 @@ router.post('/login', async (req, res) => {
 });
 
 // Other routes and middleware definitions...
+router.get('/newuser', (req,res) => {
+  res.render('newuser');
+});
+
+router.get('/returningUser', (req,res) => {
+  res.render('returningUser');
+});
 
 
 module.exports = router;
