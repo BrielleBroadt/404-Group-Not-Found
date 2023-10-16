@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Entries } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -23,9 +23,17 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+    const entriesData = await Entries.findAll({
+      where:{
+        user_id:req.session.user_id,
+      },
+    })
+    console.log(entriesData); // Add this line to check the retrieved data
+    const entries = entriesData.get({plain: true})
 
     res.render('profile', {
       ...user,
+      entries,
       logged_in: true
     });
   } catch (err) {
