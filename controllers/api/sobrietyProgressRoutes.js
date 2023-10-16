@@ -3,8 +3,16 @@ const { SobrietyProgress } = require('../../models');
 
 
 router.post('/', async (req, res) => {
+
+    console.log(req.session.user_id)
+
+    const moneySaved = req.body.boosAmount;
+    const daysSober = req.body.daysSober;
+
+    const data = {"days_sober": daysSober, "money_saved": moneySaved, "user_id": req.session.user_id}
+
     try {
-        const newProgress = await SobrietyProgress.create(req.body);
+        const newProgress = await SobrietyProgress.create(data);
         res.status(201).json(newProgress);
     } catch (err) {
         res.status(400).json(err);
