@@ -22,17 +22,6 @@ const loginFormHandler = async (event) => {
   }
 };
 
-// var data = {
-//   pageTitle: "homepage",
-//   imageUrl: "public/images/goodHabits.jpg",
-//   imageAltText: "One Day At a Time"
-// };
-
-// // Testing adding photo to home page
-// var source = document.getElementById("template").innerHTML;
-// var template = Handlebars.compile(source);
-// var html = template(data);
-// document.getElementById("output").innerHTML = html;
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
@@ -49,6 +38,9 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      console.log(response.body)
+      const userId = response.body.id;
+      localStorage.setItem("userId", userId)
       document.location.replace('/newuser');
     } else {
       alert(response.statusText);
