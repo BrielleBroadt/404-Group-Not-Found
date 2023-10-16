@@ -45,15 +45,29 @@
   }
   // Add click event listeners to the buttons
  yesButton.addEventListener('click', function() {
-    count += 1;
+    count -= 1;
     updateCountDisplay(); // Update the count display
   });
   noButton.addEventListener('click', function() {
-    count -= 1;
+    count += 1;
     updateCountDisplay(); // Update the count display
   });
   // Initial update of the count display
   updateCountDisplay();
+
+function getCountFromCookie() {
+  const cookieString = document.cookie;
+  const cookies = cookieString.split('; ');
+  for (const cookie of cookies) {
+    const [name, value] = cookie.split('=');
+    if (name === 'count') {
+      return parseInt(value, 10);
+    }
+  }
+  return 0; // Return a default value if the count is not found in cookies
+}
+
+
 </script>
         </div>
     </div>
