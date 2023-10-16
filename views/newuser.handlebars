@@ -19,55 +19,28 @@
     <button type="submit" value="Submit">Submit</button>
 </form>
 
-<script>
-    // Get a reference to the form element
-    const form = document.getElementById('myForm');
 
-    // Add an event listener to the form's submit event
-    form.addEventListener('submit', function(event) {
-        // Prevent the default form submission
-        event.preventDefault();
-
-        // Get the value entered by the user
-        const Amount = parseFloat(document.getElementById('Amount').value);
-
-        // Perform validation or further processing here
-        if (isNaN(Amount)) {
-            alert('Please enter a valid amount.');
-        } else {
-            // You can submit the form data to the server or perform other actions here
-            // For example, you can use Ajax to send the data to the server without a full page reload.
-            // Here, we'll just display an alert with the entered amount.
-            alert('amount: $' + Amount.toFixed(2));
-        }
-    });
-</script>
-
-<progress id="progressBar" max="100" value="0"></progress>
 
 <script>
-    const form = document.getElementById('myForm');
-const progressBar = document.getElementById('progressBar');
+    const entriesFunction = async function(event){
+        event.preventDefault()
+        const boosAmount = document.querySelector("#Amount").value.trim()
+        if (boosAmount) {
+            await fetch("api/entries",{
+                method:"POST", 
+                body:JSON.stringify({
+                    boosAmount
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const Amount = parseFloat(document.getElementById('Amount').value);
-
-    if (isNaN(Amount)) {
-        alert('Please enter a valid amount.');
-    } else {
-        // Update the progress bar based on the entered amount
-        // For example, you can set the progress to a percentage of the amount (e.g., 10% of the amount)
-        const progressValue = (Amount * 10); // Adjust this factor as needed
-
-        // Ensure the progress value does not exceed the maximum (100)
-        progressBar.value = Math.min(progressValue, progressBar.max);
-
-        // Display an alert with the entered amount
-        alert('amount: $' + Amount.toFixed(2));
+                })
+                ,
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            document.location.replace("/returningUser")
+        } 
     }
-});
+    document.querySelector("#myForm").addEventListener("submit", entriesFunction)
 </script>
 
 

@@ -24,11 +24,16 @@
         <p class="text-teal-400 text-lg font-bold">Number of Days Sober:</p>
         <div class="relative pt-1">
             <div class="flex mb-2 items-center justify-between">
+             
                 <div>
                     <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-teal-200 text-teal-700">
                         Progress
+                     
                     </span>
                 </div>
+                   {{#each entries}}
+                <div>{{entries.per_day}}</div>
+                {{/each}}
                 <div class="text-right">
                     <p id="count" class="text-xs font-semibold inline-block text-teal-600">
                         <!-- Replace 'X' with the actual number of days sober -->
