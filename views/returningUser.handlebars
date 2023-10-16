@@ -1,34 +1,22 @@
 <head>
     <link rel="stylesheet" href="/public/css/styles.css">
-
 </head>
-
-
 <!-- Loop over each object in the projects array -->
 <h1 class="text-rose-400 text-3xl font-bold">We missed you!</h1>
-
-
-
-
 <div class="max-w-xl mx-auto mt-4 p-4 bg-gray-200">
     <h1 class="text-teal-400 text-3xl font-bold">Welcome Back!!</h1>
-
     <!-- Check if the user drank yesterday -->
     <h1 class="text-teal-400 text-2xl font-bold">Did You Drink Yesterday?</h1>
     <button class ="text-rose-400 font-bold text-xl py-2 px-3 rounded bg-amber-100 bg-gradient-to-r from-rose-200 to-teal-100" id ="yesButton">YES</button>
     <button class ="text-rose-400 font-bold text-xl py-2 px-3 rounded bg-amber-100 bg-gradient-to-r from-rose-200 to-teal-100"id ="noButton">NO</button>
-    
-
     <!-- Display the number of days sober -->
     <div class="my-8">
         <p class="text-teal-400 text-lg font-bold">Number of Days Sober:</p>
         <div class="relative pt-1">
             <div class="flex mb-2 items-center justify-between">
-             
                 <div>
                     <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-teal-200 text-teal-700">
                         Progress
-                     
                     </span>
                 </div>
                    {{#each entries}}
@@ -46,68 +34,27 @@
                 <!-- Replace 'Y' with the actual percentage (0-100) -->
                 <div style="width: Y%;" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-600"></div>
             </div>
-
-
 <script>
   // Get the buttons and count span element
   const yesButton = document.getElementById('yesButton');
   const noButton = document.getElementById('noButton');
   const countSpan = document.getElementById('count');
-
   let count = 0; // Initialize the count
-
   function updateCountDisplay() {
     countSpan.textContent = count + ' Days'; // Add "Days" after the count
   }
-
   // Add click event listeners to the buttons
  yesButton.addEventListener('click', function() {
-    count -= 1;
-    updateCountDisplay(); // Update the count display
-  });
-
-  noButton.addEventListener('click', function() {
     count += 1;
     updateCountDisplay(); // Update the count display
   });
-
+  noButton.addEventListener('click', function() {
+    count -= 1;
+    updateCountDisplay(); // Update the count display
+  });
   // Initial update of the count display
   updateCountDisplay();
-
-  function setCountInCookie(count) {
-  document.cookie = `count=${count}`;
-}
-
-function getCountFromCookie() {
-  const cookieString = document.cookie;
-  const cookies = cookieString.split('; ');
-  for (const cookie of cookies) {
-    const [name, value] = cookie.split('=');
-    if (name === 'count') {
-      return parseInt(value, 10);
-    }
-  }
-  return 0; // Return a default value if the count is not found in cookies
-}
-
-// When the page loads, initialize the count from the cookie
-count = getCountFromCookie();
-updateCountDisplay();
-
-// Update the count in the cookie whenever it changes
-yesButton.addEventListener('click', function() {
-  setCountInCookie(count);
-  updateCountDisplay();
-});
-
-noButton.addEventListener('click', function() {
-  setCountInCookie(count);
-  updateCountDisplay();
-});
 </script>
         </div>
     </div>
 </div>
-
-
-
