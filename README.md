@@ -34,20 +34,19 @@ This project is developed as part of a school assignment for Rutgers University.
 * Open your web browser and visit http://localhost:3000 to use the application.
 
 ## Usage
+https://secret-anchorage-27048-6f96f7f70d0e.herokuapp.com/
+Open the app and log in!
 
-(TODO)
 
-![Screenshot]()
 
 ## Tests
+Multiple users were created to test the cookies and keeping the user information
 
-(TODO?)
 
 ## Contact Information
 
 For any further inquiries, please feel free to reach out to us through the following channels:
 * GitHub: [My GitHub Profile](https://www.github.com/briellebroadt)
-* Email: (?)
 
 We am here to assist you with any questions or feedback you may have. Thank you for your interest!
 
