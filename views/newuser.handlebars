@@ -1,10 +1,11 @@
 <head>
+     <!-- Include a CSS stylesheet for styling -->
     <link rel="stylesheet" href="/public/css/styles.css">
 
 </head>
 
 
-<!-- Loop over each object in the projects array -->
+<!-- This section contains a welcome message for new users -->
 <h1 class="text-teal-400 text-3xl font-bold">Welcome New User</h1>
 <h1 class="text-purple-400 text-2xl font-bold">Congratulations on your path to becoming a Renewed version of YOU!</h1>
 <br>
@@ -12,6 +13,7 @@
 <br>
 <br>
 
+<!-- This form collects user input for alcohol spending and days sober -->
 <form id="myForm">
     <h1 class="text-teal-400 text-2xl font-bold">On average, how much do you spend on alcohol in a day?</h1>
     <label for="Amount">Amount $:</label>
@@ -20,17 +22,20 @@
     <label for="DaysSober">Days Sober:</label>
     <input type="number" id="DaysSober" name="DaysSober" placeholder="Enter current days sober"  required>
     <br>
+    <!-- Submit button for the form -->
     <button type="submit" value="Submit">Submit</button>
 </form>
 
 
 
 <script>
+    // This JavaScript function handles form submission
     const entriesFunction = async function(event){
         event.preventDefault()
         const boosAmount = document.querySelector("#Amount").value.trim()
         const daysSober = document.querySelector("#DaysSober").value.trim()
         if (boosAmount && daysSober) {
+            // Create an object with user inputs and send it to the server via an API
             const submitObj = {boosAmount: boosAmount, daysSober: daysSober}
             await fetch("api/progress",{
                 method:"POST", 
@@ -40,6 +45,7 @@
                     "Content-Type":"application/json"
                 }
             })
+            // Redirect the user to a "returningUser" page after submission
                         document.location.replace("/returningUser")
         } 
     }
